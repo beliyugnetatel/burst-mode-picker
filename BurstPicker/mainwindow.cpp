@@ -13,6 +13,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::ShowImage(const QString &filePath)
+{
+    if (ui->graphicsView->scene())
+    {
+        ui->graphicsView->scene()->deleteLater();
+    }
+
+    QGraphicsScene *scene = new QGraphicsScene(this);
+    scene->addPixmap(QPixmap(filePath));
+
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->fitInView(scene->itemsBoundingRect(), Qt::KeepAspectRatio);
+}
+
 void MainWindow::on_openFolderbtn_clicked()
 {
     QStringList files = QFileDialog::getOpenFileNames(
@@ -42,11 +57,15 @@ void MainWindow::on_openFolderbtn_clicked()
 
         QString firstFilePath = list->item(0)->data(Qt::UserRole).toString();
 
-        QGraphicsScene *scene = new QGraphicsScene(this);
-        scene->addPixmap(QPixmap(firstFilePath));
-
-        graphView->setScene(scene);
-        graphView->fitInView(scene->itemsBoundingRect(), Qt::KeepAspectRatio);
+        ShowImage(firstFilePath);
     }
+}
+
+
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    QString FilePath = item->data(Qt::UserRole).toString();
+
+    ShowImage(FilePath);
 }
 

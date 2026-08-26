@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QGraphicsScene>
+#include <QListWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,8 +25,12 @@ public:
 private slots:
     void on_openFolderbtn_clicked();
 
+    void on_listWidget_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::MainWindow *ui;
+
+    void ShowImage(const QString &filePath);
 
 };
 #endif // MAINWINDOW_H
