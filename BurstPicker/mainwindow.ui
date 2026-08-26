@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Upload</string>
     </property>
    </widget>
    <widget class="QGraphicsView" name="graphicsView">
