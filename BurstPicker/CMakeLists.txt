@@ -23,6 +23,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(BurstPicker
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        algologic.h algologic.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET BurstPicker APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
