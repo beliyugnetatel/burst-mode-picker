@@ -39,7 +39,6 @@ void MainWindow::on_openFolderbtn_clicked()
     if (files.isEmpty()) return;
 
     auto list = ui->listWidget;
-    auto graphView = ui->graphicsView;
 
     for (const QString &file : files)
     {

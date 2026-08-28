@@ -4,6 +4,7 @@
 #include <QString>
 #include <QImage>
 
+
 class AlgoLogic
 {
 public:
@@ -12,6 +13,8 @@ public:
 private:
 
     void makeBW(const QString &filePath);
+
+    void Laplace(QImage image);
 };
 
 #endif // ALGOLOGIC_H
